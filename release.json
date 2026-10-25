@@ -73,14 +73,14 @@
     },
     {
       "name": "RELEASE-NOTES.md",
-      "bytes": 3737,
-      "sha256": "e7c54252d662b9f578f86f78015d7cfda2553fe59da36a9ca3c204c0f991e516",
+      "bytes": 4026,
+      "sha256": "7d0b4fb3361165eed59cc49ede0609e2dc91af64c3deaf42e04f35cf93eb9977",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/RELEASE-NOTES.md"
     },
     {
       "name": "SHA256SUMS",
       "bytes": 1234,
-      "sha256": "29a46f5da7e8cf77c06f281b2b9a3024ee690b2aad5be33a6b82eb1c7eb0a417",
+      "sha256": "6a5283a4da39839029e2cea9b5b83ea031a88d5719638a8ce6e5e0dc517177ea",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/SHA256SUMS"
     },
     {
