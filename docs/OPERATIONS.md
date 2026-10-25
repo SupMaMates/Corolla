@@ -14,6 +14,10 @@ drains at least 50 seconds and verifies zero reservations. Keep five-live/32-acc
 two-file/one-recorder and aggregate 2 GiB budgets; ring 8 MiB, HLS 64 MiB/140 inodes,
 archive 256 MiB/512 inodes. Bounded private first-error files live in `/var/log/corolla`.
 HTTP access/error logs and service stdout/stderr are discarded to avoid secret leakage.
+To return after planned Stop, use the kit's one `python3 install recover` intent
+(or installed `control.py recover`), then explicitly Start selected media in the
+panel. Recovery handles its internal control/authority sequence; a separate control
+Start is only needed when you want idle administration without recovery/playback.
 
 ## Backup and independent readback
 
@@ -109,8 +113,26 @@ uses the same arguments and is read-only. `verify` needs no bundle arguments:
 python3 /opt/corolla/active/ops/install/install.py verify
 ```
 
-The accepted update/rollback contract permits only a VERSION change with otherwise
-matching payload/schema/configuration. B release changes are refused. Maintenance
+The new kit supports actual compatible application-byte updates from M20
+`1e2b8eccb061c7d3127d98ad48c78fad56180fcd` to this rc.2 profile. Use the **new kit's**
+entrypoint so the old installed VERSION-only guard is not invoked:
+
+```sh
+cd /root/corolla-install-20-rc2
+python3 install update
+python3 install rollback
+python3 install status
+python3 install recover
+```
+
+Update reuses the original private input, prints the source/code/package plan and
+requires `UPGRADE`. Rollback asks for the extracted previous verified kit directory
+and requires `ROLLBACK`. Keep that kit and the current new kit. Only the retained
+previous source can be selected for rollback; the new kit continues to provide the
+interface after rollback. The declared profile freezes schema, configuration and
+media interfaces; an unknown profile or changed invariant refuses before downtime.
+There is no compatibility override switch, database migration or private commissioning
+script in this customer path. B release changes remain refused. Maintenance
 stops actual serving nodes, blocks/drains ≥50 seconds, checks zero reservations,
 captures a private durable pre-change backup, stages/readbacks and switches code.
 Rollback requires the retained previous compatible source; current durable edits
@@ -118,7 +140,7 @@ and media survive. Neither operation restores old SQL or authority. Keep current
 previous and one staging release; unknown/executing old objects block pruning.
 Explicit recovery/Apply/Start remains required after switching a backend incarnation.
 
-**M19A-to-20.0.0-rc.1 is unsupported by this VERSION-only interface: its dependency
-lock differs. Use a fresh supported installation.** No customer migration,
+**M19A-to-20.0.0-rc.2 remains unsupported.** This is an explicit M20-compatible
+code profile, not arbitrary historical compatibility. No customer migration,
 cross-product import, arbitrary downgrade or private commissioning-script interface
 is offered. There is no erase/reset procedure in this release.

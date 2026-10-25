@@ -1,20 +1,53 @@
 # Building the corresponding source
 
-Runtime compilation is unnecessary for installation. Builders use a separate Linux
-amd64 environment. The corresponding-source archive records exact accepted blobs
-in `SOURCE-MANIFEST.json`; no private checkout is needed to read/modify/build them.
-The dependency-source archive supplies exact external source and retained licences.
-Verify both against the release SHA256SUMS before extracting to fresh directories.
+Customers install the verified role kit; no compiler, Git or Composer is required
+on the runtime host. Builders use a separate Linux amd64 environment. Verify source
+assets with the release SHA256SUMS before extraction into fresh directories.
+`SOURCE-MANIFEST.json` records the exact Corolla source blobs; no private checkout
+or development history is needed.
 
-The shipped PHP/vendor and browser assets are already source/deployable files.
-`xc_vm/src/composer.lock` and production `vendor/` record exact packages, references
-and licences; no Composer install is needed. Do not replace them with newer packages.
+## Ready-made FFmpeg and exact source
 
-## Go services
+This release reuses BtbN's dated **LGPL linux64 8.1** build from
+`autobuild-2026-10-25-13-00`, archive SHA256
+`a816e76a32abd1fb75fdef65e6a9ca2efdfebc0ee55ace1c27367a60d1f8658f`.
+FFmpeg/ffprobe version: `n8.1.3-24-g92611900bb-20261025`. The exact binaries are
+already in both role kits; there is no mutable latest fetch at installation.
+If the provider retires its daily download, obtain the same verified bytes from
+this release's role kit. The lock pins both executable and notice hashes.
 
-Obtain Go **1.27.3** from the URL/hash in `ops/install/dependencies.json`; verify the
-archive and compiler executable against that lock. The module uses only the Go
-standard library. In the extracted source, using that compiler:
+The dependency-source archive contains the matching full FFmpeg source snapshot,
+exact BtbN recipe archive, and `SOURCES.json`: repository URLs plus pinned Git
+commits/tags or SVN revisions for dependency build inputs. FFmpeg commit is
+`92611900bb112123e9bf997fdcc2d78e4c4922fc`; recipe commit is
+`937868360a21d711ec94a33f5591d345ad9b7754`. Its scripts retain configuration,
+patches, source revisions and upstream notices. Source retrieval requires no
+private account or owner request. The source map also retains disabled variants;
+those entries are not claims that their GPL/nonfree libraries are linked.
+
+For a source rebuild, follow the included provider README/Docker recipes with
+`linux64 lgpl 8.1`, using the pinned FFmpeg commit above in place of the moving
+`release/8.1` branch. Keep the recipe's per-library source revisions/patches. Do not
+infer a bit-identical third-party rebuild from the version label. These binaries
+contain libav. ELF dependencies resolve the Ubuntu C runtime/libgcc; the actual
+qualified process also maps Ubuntu's Vulkan loader. Installed package/source records
+cover these system libraries. There is no external system libav fallback and no GPU
+profile claim. Supported media behavior remains H.264/AAC copy, not every codec
+compiled into this general public build.
+
+The historical minimal FFmpeg6.1 builder, signed source and patches are retained
+as fallback/provenance material. That custom build is not a prerequisite or the
+default dependency for these rc.2 kits, and its exclusion-based proof is not claimed
+for the public binary.
+
+## Go and PHP
+
+The shipped PHP/vendor and browser assets are source/deployable files. Exact
+production package versions/references/licences are retained in
+`xc_vm/src/composer.lock` and `vendor/`; no Composer install is needed.
+
+Use Go1.27.3 from the URL/hash in `ops/install/dependencies.json`. Verify both the
+archive and compiler executable. The module uses the Go standard library only:
 
 ```sh
 cd media
@@ -26,64 +59,23 @@ for name in corolla-media corolla-file-auth corolla-archive corolla-egress; do
 done
 ```
 
-The published executable identities are in provenance and role manifests. Do not
-relabel locally changed binaries as accepted release bytes.
+The dependency archive offers the matching Go source/licences and Valkey8.1.10
+source. A uses the official Valkey noble-x86_64 binary archive pinned in the lock;
+its upstream Makefile builds source with `make -j2`. Preserve its distinct bundled
+notices. Distribution/compiler choices may change locally rebuilt hashes.
 
-## Application FFmpeg/ffprobe
+## Packaging a local developer build
 
-Use the dependency archive's signed `ffmpeg-6.1.6.tar.xz`, signature and public key;
-the lock contains each input hash and signer fingerprint. `build_ffmpeg.py` verifies
-them, checks the exact compiler/static-library/binutils hashes, applies the retained
-mechanical hvcC count-guard backport without fuzz, enforces the minimal profile and
-builds the two executables. The signed release already contains the four CENC guards;
-its separate original patch is preserved for provenance, not applied twice.
+The unchanged role-assembly/staging rules live in `ops/install/build.py`. For the
+FFmpeg input directory, take `bin/ffmpeg`, `bin/ffprobe` and the three files under
+`licenses/ffmpeg/` from a verified role payload; put those five files directly into
+`/verified/public-ffmpeg`. The builder checks all five hashes from the lock.
+It does not compile FFmpeg. Use the official pinned Valkey archive and Go compiler.
+Git, bash, PHP CLI, zip, make and ordinary Unix archive tools are builder prerequisites.
 
-```sh
-python3 ops/install/build_ffmpeg.py --inputs /verified/ffmpeg-inputs --output /new/ffmpeg-build
-```
-
-Match Ubuntu 24.04 build inputs: GCC 13 `13.3.0-6ubuntu2~24.04.1`, binutils
-`2.42-4ubuntu2.8`, libc6-dev `2.39-0ubuntu8.9`, libssl-dev `3.0.13-0ubuntu3.16`.
-Use authenticated Ubuntu package/source metadata, `build-essential`, `pkg-config`,
-`libssl-dev`, `gnupg`, `patch`, `python3`, `make` and the locked compiler. Static
-libc/libm/libssl/libcrypto inputs are identified individually in the lock; a mismatch
-stops the builder rather than claiming reproducibility. The configure flags, epoch,
-patches and required/excluded components are in the unchanged build script/lock.
-The release ships these generated configs and FFmpeg licence texts in both kits.
-
-For modified/relinked LGPL builds, unpack the supplied FFmpeg source, apply
-`ops/install/ffmpeg-patches/CVE-2026-75141-6.1.patch` using `patch -p1`, run configure
-with the flags from the lock, then `make -j2 ffmpeg ffprobe`. Substitute your static
-libc/TLS libraries as needed; the exact-release hash guards deliberately reject
-modified inputs. All relevant source/configuration is offered for rebuilding and
-relinking; modified outputs are not qualified release artifacts.
-
-## Valkey and package dependencies
-
-The A kit reuses the official Valkey 8.1.10 noble-x86_64 binary archive, pinned by
-URL/archive/executable SHA256 in the lock. Corresponding source, bundled notices and
-its upstream build instructions are in the dependency-source archive. Build from
-that version with its provided Makefile (`make -j2`); distribution packaging/compiler
-choices may change the resulting hash. The official binary is not a Corolla rebuild.
-
-Ubuntu runtime packages are installed from authenticated repositories rather than
-redistributed inside the kits. `resolved_packages.A/B` pins their exact versions.
-Use Ubuntu's matching signed source indices and `apt-get source PACKAGE=SOURCE_VERSION`
-(with noble/noble-updates/noble-security `deb-src` enabled) for package source; binary
-and source package names/versions can differ. Each installed package retains its
-`/usr/share/doc/<package>/copyright`. Distinct LGPL/BSD/Apache/MIT/GPL terms remain.
-
-## Role packaging records
-
-`ops/install/build.py` is the unchanged accepted package recipe: role allowlists,
-production vendor checks, Go flags, official Valkey selection, FFmpeg/hash checks,
-regular-file/mode inventories and the existing three-member `python3 install` kit.
-It normally selects a Git commit and runs retained legacy `make main`/`make lb`
-packaging checks before assembling supported role payloads. The source export has
-no historical Git object database or excluded legacy native binaries. To use the
-unchanged recipe, make an isolated local source commit and pass its identity. This
-creates a new developer artifact identity, not the accepted historical release.
-On the Linux builder, from the extracted source root:
+The clean export has no historical Git object database. Create an isolated local
+commit to use the existing exact-commit recipe; this creates a new developer
+artifact identity, not the accepted release identity:
 
 ```sh
 git init
@@ -92,15 +84,19 @@ git -c user.name='Local builder' -c user.email='builder@localhost' commit -m 'Lo
 python3 ops/install/build.py --repo "$PWD" --source "$(git rev-parse HEAD)" \
   --output /new/role-build --go /verified/go/bin/go \
   --valkey-archive /verified/valkey-8.1.10-noble-x86_64.tar.gz \
-  --ffmpeg-build /verified/ffmpeg-build --roles AB
+  --ffmpeg-build /verified/public-ffmpeg --roles AB
 ```
 
-The builder also needs Git, PHP CLI, bash, zip, make and normal Unix archive tools.
-Retained `xc_vm/install` and `lb_configs` are included solely for those legacy
-packaging checks; never execute that inherited installer. Supported role payloads
-are assembled separately by `build.py`. No bit-identical third-party rebuild or
-acceptance of locally rebuilt kits is implied. Use published role manifests for
-the accepted payload paths, modes and hashes.
+Retained `xc_vm/install`/Makefile/lb_configs are included for legacy packaging checks
+only. Never execute that inherited installer/updater. The supported customer
+entrypoint is the existing verified role kit's `python3 install`.
 
-Do not use inherited XC_VM installers/updaters or private extensions. The supported
-customer entrypoint remains the verified immutable role kit's `python3 install`.
+Ubuntu packages come from authenticated noble/noble-updates/security repositories,
+with supported families/minimums and no downgrade. `resolved_packages` is historical
+reference, not an exact transitive install constraint. Actual installed versions
+for required packages are reported by installer verification; Ubuntu's dpkg database
+retains the complete actual transitive inventory (`dpkg-query -W`). Installed packages retain
+`/usr/share/doc/<package>/copyright`; matching signed Ubuntu `deb-src` indices and
+`apt-get source PACKAGE=SOURCE_VERSION` provide their source. Binary/source package
+names and versions can differ. Locally modified/rebuilt outputs are not certified
+release artifacts and must not be relabelled as accepted bytes.

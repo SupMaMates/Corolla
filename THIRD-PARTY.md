@@ -11,13 +11,20 @@ those terms. The source manifest identifies the matching modified release.
 | Browser JS/CSS/fonts/assets | Retained embedded copyright/licence headers and accompanying files in the exported shipped asset tree; not blanket-relicensed |
 | Go runtime/standard library | Go BSD-style licence and PATENTS; Go 1.27.3 source in dependency archive |
 | Valkey 8.1.10 | BSD-3-Clause project licence; separately licensed bundled components retain their COPYING/NOTICE files in exact source |
-| FFmpeg 6.1.6 profile | LGPL v3-or-later profile (`--enable-version3`, no GPL/nonfree flags); LICENSE.md/COPYING.LGPLv3, source and patches retained |
-| Statically linked glibc/libm | LGPL-2.1-or-later plus per-file exceptions/notices; matching Ubuntu glibc source and build instructions for relinking |
-| Statically linked OpenSSL | Apache-2.0; matching Ubuntu OpenSSL source, LICENSE and notices |
+| Public FFmpeg/ffprobe 8.1 | BtbN LGPL8.1 dated binary, no GPL/nonfree flags; LGPLv3 text, full FFmpeg source and exact build recipes/source revisions retained |
+| Public build's linked libraries | Distinct upstream LGPL/BSD/MIT/Apache/zlib and other terms; exact per-library source/revision/build/patch inputs and retained source notices in public SOURCES.json/provider recipes; disabled variants are not claimed linked |
+| glibc/libm/libgcc | Ubuntu system runtime libraries, dynamically resolved; their distinct licences/copyright and source packages remain applicable |
+| Historical custom FFmpeg fallback | Signed6.1.6 source, LGPLv3 and exact patches/static-library build inputs retained as historical fallback material, not this rc.2 binary's configuration |
 | Ubuntu installed packages | Independently distributed by Ubuntu, with their own copyright/source packages; exact version lock provided |
 
-FFmpeg is statically linked, including TLS/C libraries. Its licences do not replace
-those libraries' terms. Source/build information is in [BUILD.md](BUILD.md).
+The public FFmpeg binaries contain their libav and codec/TLS dependencies while
+resolving system libraries dynamically (C runtime/libgcc; the observed process also
+maps Ubuntu's Vulkan loader). Their LGPL text does not replace
+linked components' distinct terms. Source/build information is in [BUILD.md](BUILD.md).
+The dependency-source archive includes `public-library-notices.tar.gz`: supplemental
+copyright/licence texts from 79 exact provider inputs and a URL/revision/hash index.
+Provider inputs also include disabled variants; those notices do not imply that
+their libraries are linked. Preserve per-file notices in each offered source too.
 Original upstream URLs and exact hashes remain in `dependencies.json`; no private
 extension licence/activation infrastructure is part of Corolla's supported path.
 
@@ -31,6 +38,6 @@ Retained browser notices include Bootstrap 5.3.5/4.5.0, jQuery 3.7.1, ApexCharts
 BSD-2-Clause and Video.js 8.23.4/vtt.js use Apache-2.0. Font Awesome Free 6.7.2
 uses CC-BY-4.0 for icons, SIL OFL-1.1 for fonts and MIT for code; Tabler icons use
 MIT. Preserve the embedded per-file headers too. Full supplemental texts are in
-[THIRD-PARTY-NOTICES.txt](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/THIRD-PARTY-NOTICES.txt),
+[THIRD-PARTY-NOTICES.txt](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/THIRD-PARTY-NOTICES.txt),
 with exact retrieval URLs/content hashes in
-[notice-sources.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/notice-sources.json).
+[notice-sources.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/notice-sources.json).

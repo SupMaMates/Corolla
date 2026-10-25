@@ -15,8 +15,10 @@ actual producers and storage. UNKNOWN/BLOCKED requires its indicated repair.
 1. Use ordinary supported forms to create a bouquet, package/entitlements as needed,
    subscriber line and a live H.264/AAC MPEG-TS or HLS source. Approve every literal
    IPv4 source address/port, including nested resources and redirects.
-2. Enroll the real IDs in Registration. Apply during planned maintenance with the
-   displayed interruption confirmation. Keep line entitlements/bouquets consistent.
+2. Open Registration, choose the saved line/channel by name, and confirm **Save and
+   Apply** during planned maintenance. No manual ID copying is needed. The confirmed
+   action saves and requests Apply together; it interrupts viewers and leaves media
+   stopped. Keep line entitlements/bouquets consistent.
 3. If authority recovery is required, use the explicit operation below. Wait for
    registration to refresh for this boot; then Apply/publish enabled lines and
    explicitly Start the desired streams in Live Control.

@@ -6,10 +6,14 @@ does not configure TLS, global SSH or firewall policy. HTTP credentials/capabili
 media are unencrypted. Use a controlled environment appropriate to this limited RC.
 
 Refresh authenticated Ubuntu package metadata with `apt-get update` before starting.
-The installer selects exact pinned packages from Ubuntu noble/noble-updates/security;
-unavailable versions stop preflight. Do not substitute versions or run a full upgrade
-to bypass a failure. The [dependency lock](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/dependencies.json)
-records requested/resolved versions. Runtime Git, Composer and compilers are unnecessary.
+The installer accepts supported package families/minimums from authenticated Ubuntu
+noble/noble-updates/security repositories and retains compatible newer installed
+patches. It records actual installed versions; historical transitive solver output
+is reference information, not an equality requirement. Missing minimums, unsupported
+required families and proposed removals/downgrades stop the plan. Do not run a full
+upgrade to bypass a failure. The [dependency record](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/dependencies.json)
+identifies minimums and pinned downloaded application binaries. Runtime Git, Composer
+and compilers are unnecessary.
 
 ## Additional media (B)
 
@@ -23,15 +27,15 @@ apt-get install --no-install-recommends python3 curl ca-certificates
 umask 077
 cd /root
 curl --fail --location --proto '=https' --tlsv1.2 --output corolla-B-install.zip \
-  https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/1e2b8eccb061c7d3127d98ad48c78fad56180fcd-B-install.zip
-printf '%s  %s\n' 550f12d34bdb28ba9fe9ab6b38fc6be04f3708ccb86f8d25117f2d1ea3f3b48d corolla-B-install.zip | sha256sum --check
-mkdir -m 700 /root/corolla-media-install-20-rc1
-python3 -m zipfile -e /root/corolla-B-install.zip /root/corolla-media-install-20-rc1
-cd /root/corolla-media-install-20-rc1
+  https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/3150c8ded9bebf07d23b40d60be509f12e0b1b86-B-install.zip
+printf '%s  %s\n' b68aede42d588d72e4a798040db5a5b86e2e180497ca744f9ae2963006586cff corolla-B-install.zip | sha256sum --check
+mkdir -m 700 /root/corolla-media-install-20-rc2
+python3 -m zipfile -e /root/corolla-B-install.zip /root/corolla-media-install-20-rc2
+cd /root/corolla-media-install-20-rc2
 python3 install
 ```
 
-Both roles identify runtime source `1e2b8eccb061c7d3127d98ad48c78fad56180fcd`.
+Both roles identify runtime source `3150c8ded9bebf07d23b40d60be509f12e0b1b86`.
 Do not mix older role kits. B exposes restricted SSH on port 18723 after explicit
 control start; it has no public panel/web listener. Pin its independent SSH host
 public key over your trusted administration channel before authentication.
@@ -74,4 +78,5 @@ The source archive's unchanged installer and `--help` document advanced engine f
 the verified kit's descriptor names the source, inner bundle and its SHA256.
 
 Proceed to [first use](FIRST-USE.md). For update/rollback and recovery use
-[operations](OPERATIONS.md); **M19A-to-RC is not a VERSION-only upgrade**.
+[operations](OPERATIONS.md). The new kit supports the explicitly compatible M20
+rc.1-to-rc.2 path; M19A and arbitrary historical/schema migrations remain unsupported.

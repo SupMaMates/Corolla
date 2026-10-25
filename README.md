@@ -6,7 +6,7 @@ Corolla is a self-hosted IPTV panel derived from XC_VM. PHP manages accounts and
 entitlements, FFmpeg produces media, Go supervises bounded playback, and Nginx
 serves bytes. SQL holds durable facts; Valkey holds temporary playback state.
 
-**20.0.0-rc.1 is a LIMITED RC / prerelease. Endurance is UNVERIFIED/DEFERRED.**
+**20.0.0-rc.2 is a LIMITED RC / prerelease. Endurance is UNVERIFIED/DEFERRED.**
 HTTP sends credentials and media unencrypted. This release is not production-certified.
 Read the [release notes and limits](docs/RELEASE.md) before installation.
 
@@ -23,7 +23,7 @@ or business credentials. Use the matching kit for the selected role.
 
 ## Download and install
 
-Use the [version-pinned prerelease](https://github.com/SupMaMates/Corolla/releases/tag/v20.0.0-rc.1).
+Use the [version-pinned prerelease](https://github.com/SupMaMates/Corolla/releases/tag/v20.0.0-rc.2).
 The short standalone path, in a private root terminal on a clean supported host:
 
 ```sh
@@ -32,11 +32,11 @@ apt-get install --no-install-recommends python3 curl ca-certificates
 umask 077
 cd /root
 curl --fail --location --proto '=https' --tlsv1.2 --output corolla-A-install.zip \
-  https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/1e2b8eccb061c7d3127d98ad48c78fad56180fcd-A-install.zip
-printf '%s  %s\n' 19f52491381c9a9299baa5d6e2edd6b6d808021c47606f6b9e527a12908a65e8 corolla-A-install.zip | sha256sum --check
-mkdir -m 700 /root/corolla-install-20-rc1
-python3 -m zipfile -e /root/corolla-A-install.zip /root/corolla-install-20-rc1
-cd /root/corolla-install-20-rc1
+  https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/3150c8ded9bebf07d23b40d60be509f12e0b1b86-A-install.zip
+printf '%s  %s\n' 0ee220a38e1b174ea8ebcf1fefc975fa4d4bbd0d0329ecb1d4334e81facfd18f corolla-A-install.zip | sha256sum --check
+mkdir -m 700 /root/corolla-install-20-rc2
+python3 -m zipfile -e /root/corolla-A-install.zip /root/corolla-install-20-rc2
+cd /root/corolla-install-20-rc2
 python3 install
 ```
 
@@ -71,6 +71,20 @@ python3 /opt/corolla/active/ops/install/control.py stop
 Stop blocks admissions, stops media/recording, drains at least 50 seconds and checks
 zero reservations. [Operations and recovery](docs/OPERATIONS.md) cover status,
 backup/readback/restore, reboot recovery and the exact update/rollback limits.
+
+The verified extracted kit also provides a short root interface:
+
+```sh
+python3 install status
+python3 install update
+python3 install rollback
+python3 install recover
+python3 install stop
+```
+
+Run update/rollback from the verified **new** kit. Review its plan and confirm
+planned downtime; rollback asks for the retained previous verified kit directory.
+One recovery intent handles internal sequencing. Media Start remains explicit.
 
 ## Features and help
 
