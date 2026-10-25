@@ -1,0 +1,93 @@
+{
+  "version": "20.0.0-rc.1",
+  "tag": "v20.0.0-rc.1",
+  "prerelease": true,
+  "status": "LIMITED RC",
+  "runtime_source": "1e2b8eccb061c7d3127d98ad48c78fad56180fcd",
+  "assets": [
+    {
+      "name": "1e2b8eccb061c7d3127d98ad48c78fad56180fcd-A-install.zip",
+      "bytes": 79079730,
+      "sha256": "19f52491381c9a9299baa5d6e2edd6b6d808021c47606f6b9e527a12908a65e8",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/1e2b8eccb061c7d3127d98ad48c78fad56180fcd-A-install.zip"
+    },
+    {
+      "name": "1e2b8eccb061c7d3127d98ad48c78fad56180fcd-B-install.zip",
+      "bytes": 16438229,
+      "sha256": "550f12d34bdb28ba9fe9ab6b38fc6be04f3708ccb86f8d25117f2d1ea3f3b48d",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/1e2b8eccb061c7d3127d98ad48c78fad56180fcd-B-install.zip"
+    },
+    {
+      "name": "BUILD.md",
+      "bytes": 5863,
+      "sha256": "d13e6263304b87bbb242a215e1d8810b25415d66a9de3d097a6576a3a5008149",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/BUILD.md"
+    },
+    {
+      "name": "Corolla-20.0.0-rc.1-corresponding-source.tar.gz",
+      "bytes": 43405261,
+      "sha256": "beea5aa56b50fa7957c29c7c31efdb3941211d07f3b30798c812d06ab94625a4",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/Corolla-20.0.0-rc.1-corresponding-source.tar.gz"
+    },
+    {
+      "name": "Corolla-20.0.0-rc.1-dependency-source.tar.gz",
+      "bytes": 81842683,
+      "sha256": "9e0df92af8db3d98c77a5afe869e8b86ec1210020350d71591124a1de4a4d0d5",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/Corolla-20.0.0-rc.1-dependency-source.tar.gz"
+    },
+    {
+      "name": "dependencies.json",
+      "bytes": 22927,
+      "sha256": "75faa88688b35766e56b5ab66c09f26902a7c68c4911c2eef0eac39ae38c33fc",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/dependencies.json"
+    },
+    {
+      "name": "dependency-sources.json",
+      "bytes": 4497,
+      "sha256": "cda6da5549b7be4b41bc138e6ba1b8598b1d7f0198a80b55a3b817fda73641e7",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/dependency-sources.json"
+    },
+    {
+      "name": "manifest-A.json",
+      "bytes": 1227494,
+      "sha256": "10700470fa524642a1f8ab7a093e053915c9c7ed5acc487414b75f371bc593fd",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/manifest-A.json"
+    },
+    {
+      "name": "manifest-B.json",
+      "bytes": 6234,
+      "sha256": "4b746fc412ee2cfe63d4cd4790752b83ce93c72c8c94ad09d05bb0a3005caa68",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/manifest-B.json"
+    },
+    {
+      "name": "notice-sources.json",
+      "bytes": 1927,
+      "sha256": "e72bbb60dea79d272161f9fab5f5db1c71d85a5454711354f10fc2a9ce9e3a50",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/notice-sources.json"
+    },
+    {
+      "name": "provenance.json",
+      "bytes": 3374,
+      "sha256": "72a7125c9a0ec879a9a028cda9785bacdb42529497078b652c50772864ab7c06",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/provenance.json"
+    },
+    {
+      "name": "RELEASE-NOTES.md",
+      "bytes": 3737,
+      "sha256": "e7c54252d662b9f578f86f78015d7cfda2553fe59da36a9ca3c204c0f991e516",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/RELEASE-NOTES.md"
+    },
+    {
+      "name": "SHA256SUMS",
+      "bytes": 1234,
+      "sha256": "29a46f5da7e8cf77c06f281b2b9a3024ee690b2aad5be33a6b82eb1c7eb0a417",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/SHA256SUMS"
+    },
+    {
+      "name": "THIRD-PARTY-NOTICES.txt",
+      "bytes": 17224,
+      "sha256": "8621da77f16ffbe85ea7275b81557a5e2c926294772c9305e297d323ee7dbb0f",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.1/THIRD-PARTY-NOTICES.txt"
+    }
+  ]
+}
