@@ -38,9 +38,9 @@ Retained browser notices include Bootstrap 5.3.5/4.5.0, jQuery 3.7.1, ApexCharts
 BSD-2-Clause and Video.js 8.23.4/vtt.js use Apache-2.0. Font Awesome Free 6.7.2
 uses CC-BY-4.0 for icons, SIL OFL-1.1 for fonts and MIT for code; Tabler icons use
 MIT. Preserve the embedded per-file headers too. Full supplemental texts are in
-[THIRD-PARTY-NOTICES.txt](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/THIRD-PARTY-NOTICES.txt),
+[THIRD-PARTY-NOTICES.txt](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/THIRD-PARTY-NOTICES.txt),
 with exact retrieval URLs/content hashes in
-[notice-sources.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/notice-sources.json).
+[notice-sources.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/notice-sources.json).
 
 Installer defaults and configuration behavior adapt XC_VM `install` at
 [`3470255`](https://github.com/Vateron-Media/XC_VM/blob/3470255f95ffb39668d3f26d520c224d1d73d6db/install),

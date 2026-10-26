@@ -115,6 +115,16 @@ python3 install
 python3 install verify
 ```
 
+To repair the rc.3 login styling and Forbidden form submission, download the corrected launcher first. Your existing administrator password, identity and data are retained:
+
+```sh
+cd /root
+curl --fail --location --proto '=https' --output install https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/install
+python3 install update
+```
+
+Open the printed login URL again after the update.
+
 Use the new release's downloaded launcher for a compatible application update:
 
 ```sh
@@ -139,7 +149,7 @@ and media survive. Neither operation restores old SQL or authority. Keep current
 previous and one staging release; unknown/executing old objects block pruning.
 Explicit recovery/Apply/Start remains required after switching a backend incarnation.
 
-**M19A-to-20.0.0-rc.3 remains unsupported.** This is an explicit M20-compatible
+**M19A-to-20.0.0-rc.4 remains unsupported.** This is an explicit M20-compatible
 code profile, not arbitrary historical compatibility. No customer migration,
 cross-product import, arbitrary downgrade or private commissioning-script interface
 is offered. There is no erase/reset procedure in this release.

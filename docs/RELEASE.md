@@ -1,11 +1,13 @@
-# 20.0.0-rc.3 — LIMITED RC / prerelease
+# 20.0.0-rc.4 — LIMITED RC / prerelease
 
-Runtime source: `df1f8d0aadb380f75d0a23f59b01d1a23d30634f`.
+Runtime source: `252778af3b8c5733ae6347c4f1bb0ce09a0ddad0`.
+This release fixes missing panel styling and Forbidden on ordinary browser login.
+Existing installations use the normal launcher update; passwords and data are retained.
 Exact role manifests/executable and dependency identities are attached as
-[provenance.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/provenance.json),
-[manifest-A.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/manifest-A.json)
-and [manifest-B.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/manifest-B.json).
-The standalone installed `ops/install/VERSION` says `20.0.0-rc.3`; B uses its source
+[provenance.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/provenance.json),
+[manifest-A.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/manifest-A.json)
+and [manifest-B.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/manifest-B.json).
+The standalone installed `ops/install/VERSION` says `20.0.0-rc.4`; B uses its source
 manifest. Retained About `0.1.0-dev` and inherited protocol labels are presentation/
 compatibility metadata, not artifact identity or certification.
 

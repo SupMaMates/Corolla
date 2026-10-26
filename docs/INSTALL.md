@@ -15,13 +15,13 @@ In your private root terminal:
 
 ```sh
 cd /root
-curl --fail --location --proto '=https' --output install https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/install
+curl --fail --location --proto '=https' --output install https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/install
 python3 install
 ```
 
 The launcher downloads the matching standalone kit, checks its SHA256, role and
 source, then runs the existing installer. No Git, compiler, manual extraction or
-copied checksum is needed. Download from the [release](https://github.com/SupMaMates/Corolla/releases/tag/v20.0.0-rc.3)
+copied checksum is needed. Download from the [release](https://github.com/SupMaMates/Corolla/releases/tag/v20.0.0-rc.4)
 if you prefer saving the launcher yourself. Python 3 and trusted HTTPS CA certificates
 must be available; Ubuntu server installations normally supply these.
 

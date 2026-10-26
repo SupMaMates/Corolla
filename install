@@ -17,7 +17,7 @@ import urllib.request
 import zipfile
 
 REPOSITORY = 'SupMaMates/Corolla'
-RELEASE = 'v20.0.0-rc.3'  # The reviewed customer release, including prereleases.
+RELEASE = 'v20.0.0-rc.4'  # The reviewed customer release, including prereleases.
 BASE = 'https://github.com/' + REPOSITORY + '/releases/download/' + RELEASE + '/'
 
 

@@ -5,10 +5,10 @@
 <p align="center">Manage subscribers, live channels and on-demand media in one self-hosted IPTV panel.</p>
 <p align="center">
   <a href="docs/INSTALL.md"><strong>Install Corolla</strong></a> &nbsp; · &nbsp;
-  <a href="https://github.com/SupMaMates/Corolla/releases/tag/v20.0.0-rc.3"><strong>Download</strong></a> &nbsp; · &nbsp;
+  <a href="https://github.com/SupMaMates/Corolla/releases/tag/v20.0.0-rc.4"><strong>Download</strong></a> &nbsp; · &nbsp;
   <a href="#documentation"><strong>Documentation</strong></a>
 </p>
-<p align="center"><a href="docs/RELEASE.md">20.0.0-rc.3 · Prerelease</a></p>
+<p align="center"><a href="docs/RELEASE.md">20.0.0-rc.4 · Prerelease</a></p>
 
 ## Start here
 

@@ -12,11 +12,11 @@ Corolla changes include media/authority boundaries, supported installer/recovery
 bounded services, ingress/egress and selected compatible upstream form/EPG fixes.
 Neither upstream private activation/extensions nor its runtime ownership is adopted.
 
-Download matching runtime **`df1f8d0aadb380f75d0a23f59b01d1a23d30634f`**:
+Download matching runtime **`252778af3b8c5733ae6347c4f1bb0ce09a0ddad0`**:
 
-- [Corresponding runtime/build source](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/Corolla-20.0.0-rc.3-corresponding-source.tar.gz)
-- [Dependency source/notices archive](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/Corolla-20.0.0-rc.3-dependency-source.tar.gz)
-- [SHA256SUMS](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/SHA256SUMS)
+- [Corresponding runtime/build source](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/Corolla-20.0.0-rc.4-corresponding-source.tar.gz)
+- [Dependency source/notices archive](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/Corolla-20.0.0-rc.4-dependency-source.tar.gz)
+- [SHA256SUMS](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.4/SHA256SUMS)
 - [Build instructions](BUILD.md)
 
 The explicit source inventory includes shipped PHP/vendor/assets, Go source,
