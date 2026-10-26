@@ -18,6 +18,8 @@ To return after planned Stop, use the kit's one `python3 install recover` intent
 (or installed `control.py recover`), then explicitly Start selected media in the
 panel. Recovery handles its internal control/authority sequence; a separate control
 Start is only needed when you want idle administration without recovery/playback.
+Recovery invalidates old bearer capabilities. Never delete witness or Valkey state
+as a shortcut to repair playback.
 
 ## Backup and independent readback
 
