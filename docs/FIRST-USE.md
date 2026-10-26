@@ -1,61 +1,75 @@
-# First use
+# First login and playback
 
-All host commands run locally as root. For standalone:
+[Home](../README.md) · [Installation](INSTALL.md) · [Operations](OPERATIONS.md)
 
-```sh
-python3 /opt/corolla/active/ops/install/control.py start
-python3 /opt/corolla/active/ops/install/operations.py status
-```
+## First login
 
-Open the wrapper's chosen panel origin at `/m1adm/`. Use your private administrator;
-there are no default credentials, inherited customers or seeded test channels.
-Status separates control readiness from registration, authority, publication,
-actual producers and storage. UNKNOWN/BLOCKED requires its indicated repair.
-
-1. Use ordinary supported forms to create a bouquet, package/entitlements as needed,
-   subscriber line and a live H.264/AAC MPEG-TS or HLS source. Approve every literal
-   IPv4 source address/port, including nested resources and redirects.
-2. Open Registration and choose the saved line/channel by name. For an older
-   record absent from the recent choices, use **Find by exact name or ID**; up to
-   24 matches are added to its choices. Use an ID to distinguish duplicate names.
-   Use **Save pending** for each registration, then confirm **Apply registrations**
-   once for the batch. Alternatively, confirm **Save and Apply** for a single change.
-   Apply interrupts viewers and leaves media stopped. Keep line entitlements and
-   bouquets consistent; wait for Apply to finish before further registration edits.
-3. If authority recovery is required, use the explicit operation below. Wait for
-   registration to refresh for this boot; then Apply/publish enabled lines and
-   explicitly Start the desired streams in Live Control.
-4. Open an entitled M3U/player API link in a supported software client and check
-   Managed runtime plus root status. TS and classic live HLS share a producer.
+In your private root terminal, return to the verified kit directory used during
+[installation](INSTALL.md). Start the panel explicitly and check its status:
 
 ```sh
-python3 /opt/corolla/active/ops/install/control.py recover
-python3 /opt/corolla/active/ops/install/operations.py status
+cd /root/corolla-install-20-rc2
+python3 install start
+python3 install status
 ```
 
-Recover stops callers, blocks/drains at least 50 seconds and creates fresh witnessed
-authority. It never starts producers or recording. Old bearer capabilities deny.
-After reboot, the control UI can return while playback remains stopped; explicit
-recovery, fresh Apply/publication and Start are required. Never delete witness or
-Valkey state as a shortcut.
+If you extracted the kit elsewhere, use that directory. Open the panel address you
+selected during setup, with **`/m1adm/`** at the end, and sign in with the administrator
+you created. There are no default credentials. The fresh panel is empty.
 
-For files, register at most two root-owned immutable MP4 inputs under the approved
-media root. Registration publishes a versioned copy. Never overwrite published media.
-Entitled file delivery supports byte Range and qualified movie seeking.
+Starting the panel does **not** start playback or recording.
 
-For catch-up, enable recording separately on one healthy registered live stream.
+## Add your first channel
+
+1. Use the ordinary panel forms to create a bouquet, subscriber line and live
+   H.264/AAC MPEG-TS or HLS source. Keep entitlements/packages consistent and approve
+   every source IPv4 address/port, including nested resources and redirects.
+2. Open **Registration**, choose the saved line/channel by name, and **Save pending**.
+   When the batch is ready, confirm **Apply registrations**. For one change, you can
+   use the confirmed **Save and Apply** shortcut instead. Apply interrupts viewers
+   and leaves media stopped; wait for it to finish before more registration edits.
+3. Check status. If it requests recovery, run the explicit recovery command below
+   from your verified kit. Wait for registration to refresh for this boot, then
+   Apply/publish enabled lines and explicitly **Start** the channel in Live Control.
+4. Open an entitled M3U/player API link in a supported software client. Check
+   Managed runtime and root status; live TS and classic HLS share one producer.
+
+```sh
+python3 install recover
+python3 install status
+```
+
+An older record missing from the recent choices can be found by **exact name or
+ID**. Up to 24 matches are added; use the ID to distinguish duplicate names.
+
+Recovery stops callers, blocks/drains at least 50 seconds and creates fresh playback
+authority. It never starts media. After reboot, the panel can return while playback
+stays stopped; use the indicated recovery, fresh Apply/publication and explicit Start.
+See [operations and recovery](OPERATIONS.md) for status, maintenance and repair.
+
+## Movies and catch-up
+
+For movies/episodes, register at most two root-owned immutable MP4 inputs under the
+approved media root. Registration publishes a versioned copy; never overwrite it.
+Entitled delivery supports byte Range and qualified movie seeking.
+
+For catch-up, enable recording separately on one healthy registered live channel.
 Wait for a completed past-minute window, then use the normal entitled timeshift/
-catch-up route. Completed archive HLS/turnover was qualified with stock VLC 3.0.20;
-FFmpeg ffconcat and archive seeking are unqualified. Recording stays stopped after
-source/recovery failure until a fresh explicit request. Normal retention is ten minutes.
+catch-up route. Retention is ten minutes. Completed archive HLS/turnover was checked
+with VLC 3.0.20; archive seeking and FFmpeg ffconcat remain unqualified. Recording
+stays stopped after source/recovery failure until a fresh explicit request.
 
-For B, explicit control commands expose restricted SSH status/operations and opaque
-delivery only; neither command starts a producer:
+[Supported limits](RELEASE.md) · [Backup and maintenance](OPERATIONS.md)
+
+## Additional-media control
+
+The additional media server has no administrator panel. Run its control commands
+locally as root; neither command starts a producer:
 
 ```sh
 python3 /opt/corolla/active/ops/install/media_role.py start-control
 python3 /opt/corolla/active/ops/install/media_role.py stop-control
 ```
 
-Source-matched B component proof is reused; this RC's standalone short run does not
-certify a new two-host workload. See [limits](RELEASE.md) and [maintenance](OPERATIONS.md).
+The release's standalone checks do not certify a new two-host workload; see the
+[release notes](RELEASE.md) for the source-matched additional-media scope.

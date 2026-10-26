@@ -10,11 +10,6 @@ use this repository's GitHub **Security → Report a vulnerability**
 Report affected release/source, platform, minimal redacted reproduction and impact.
 Provide no live credentials or customer data. No response-time/support SLA is promised.
 
-Private preparation note: this channel becomes available after the repository is
-made public and private vulnerability reporting is enabled. The release publisher
-must enable and verify it before publishing this prerelease; it is not yet enabled
-in the private draft.
-
 For ordinary issues use [Issues](https://github.com/SupMaMates/Corolla/issues), with
 redacted version, platform, operation and error code. Do not upload full diagnostics
 or databases. Rotate any secret accidentally exposed before discussing it further.

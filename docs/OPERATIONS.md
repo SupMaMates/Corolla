@@ -1,8 +1,8 @@
 # Operations and recovery
 
-Run commands locally as root on standalone A. [First use](FIRST-USE.md) covers
+Run commands locally as root on the standalone server. [First use](FIRST-USE.md) covers
 explicit control start, registration/Apply, authority recovery and media Start.
-Status never repairs or Starts:
+Status never repairs or starts playback:
 
 ```sh
 python3 /opt/corolla/active/ops/install/operations.py status
@@ -144,3 +144,15 @@ Explicit recovery/Apply/Start remains required after switching a backend incarna
 code profile, not arbitrary historical compatibility. No customer migration,
 cross-product import, arbitrary downgrade or private commissioning-script interface
 is offered. There is no erase/reset procedure in this release.
+
+## Installation reference
+
+Immutable code lives at `/opt/corolla/releases/<source>` with the active link at
+`/opt/corolla/active`. Ownership and installation receipts are under `/etc/corolla`,
+durable data under `/var/lib/corolla`, volatile state under `/run/corolla`, and bounded
+private diagnostics under `/var/log/corolla`. Do not edit the installed source tree.
+
+The verified kit's descriptor identifies the source, inner bundle and checksum.
+Its source archive and the engine's `--help` cover advanced flags. An interrupted
+setup needs its exact recorded failure inspected before explicit `--resume`;
+never drop schemas, mark migrations complete or blindly reseed to bypass it.
