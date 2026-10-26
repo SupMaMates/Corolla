@@ -15,7 +15,7 @@ those terms. The source manifest identifies the matching modified release.
 | Public build's linked libraries | Distinct upstream LGPL/BSD/MIT/Apache/zlib and other terms; exact per-library source/revision/build/patch inputs and retained source notices in public SOURCES.json/provider recipes; disabled variants are not claimed linked |
 | glibc/libm/libgcc | Ubuntu system runtime libraries, dynamically resolved; their distinct licences/copyright and source packages remain applicable |
 | Historical custom FFmpeg fallback | Signed6.1.6 source, LGPLv3 and exact patches/static-library build inputs retained as historical fallback material, not this rc.2 binary's configuration |
-| Ubuntu installed packages | Independently distributed by Ubuntu, with their own copyright/source packages; exact version lock provided |
+| Ubuntu installed packages | Independently distributed by Ubuntu, with their own copyright/source packages; required minimum/family policy and actual installed versions recorded |
 
 The public FFmpeg binaries contain their libav and codec/TLS dependencies while
 resolving system libraries dynamically (C runtime/libgcc; the observed process also

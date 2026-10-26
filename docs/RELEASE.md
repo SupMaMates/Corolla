@@ -1,6 +1,6 @@
 # 20.0.0-rc.2 — LIMITED RC / prerelease
 
-Runtime source: `3150c8ded9bebf07d23b40d60be509f12e0b1b86`.
+Runtime source: `3a04ccbf9af6a840f825a5301123366ea6dc073d`.
 Exact role manifests/executable and dependency identities are attached as
 [provenance.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/provenance.json),
 [manifest-A.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/manifest-A.json)
@@ -42,7 +42,9 @@ Rc.2's affected native checks PASS: shared TS/HLS 180.208s from one producer,
 movie 30.153s and completed archive 30.190s; peak aggregate owned memory
 1,506,680,832 bytes within 2 GiB. Normal new-kit update → rollback → update preserves
 business/configuration/identity. Named confirmed Save and Apply and disabled/stopped
-closure pass, including a 51.046s drain and zero reservations. These are focused
+closure pass, including a 51.201s drain and zero reservations. The media and registration proof uses the preceding rc.2 build; its complete
+shipped media/Go/PHP entries are byte-identical to this final build, which adds an
+installer platform guard and repeats the normal update/rollback cycle. These are focused
 component checks, not another capacity or endurance campaign.
 
 **Endurance UNVERIFIED/DEFERRED**; no twelve-hour proof. HTTP is unencrypted,
