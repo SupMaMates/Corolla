@@ -3,6 +3,11 @@
 The authoritative runtime is maintained in the development repository. This customer
 home holds docs and immutable versioned release assets, not a second runtime fork.
 
+[The Corolla mindset](COROLLA.md) applies to every change, including tooling and
+review. Reuse applicable XC_VM/standard behavior and check the actual customer
+journey. Do not accept unnecessary operator steps because internal tests pass;
+fix them within the normal delivery process rather than adding another review gate.
+
 For a new release:
 
 1. Select accepted exact source and protected matching A/B kits. Preserve originals.

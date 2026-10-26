@@ -28,6 +28,7 @@ This prerelease is for controlled testing. **HTTP is unencrypted.** Read the
 
 - [Installation](docs/INSTALL.md) · [First login and playback](docs/FIRST-USE.md)
 - [Operations, backup and recovery](docs/OPERATIONS.md)
+- [The Corolla mindset](COROLLA.md) — keep it simple, everywhere.
 - [Release notes and supported limits](docs/RELEASE.md)
 - [Report a problem](https://github.com/SupMaMates/Corolla/issues) · [Security reporting](SECURITY.md)
 
