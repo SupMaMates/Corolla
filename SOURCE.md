@@ -26,3 +26,9 @@ directly without private-development-repository access or asking the owner.
 The customer repository intentionally holds documentation/release metadata with
 independent history. GitHub's automatic **Source code (zip/tar.gz)** for this repo
 contains those docs; obtain the named corresponding-source assets above for runtime.
+
+## Implementation responsibilities
+
+PHP manages accounts and entitlements, FFmpeg produces media, Go supervises bounded
+playback, and Nginx serves bytes. SQL holds durable facts; Valkey holds temporary
+playback state. These boundaries are part of the offered runtime source.
