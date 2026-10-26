@@ -1,19 +1,20 @@
-# 20.0.0-rc.2 — LIMITED RC / prerelease
+# 20.0.0-rc.3 — LIMITED RC / prerelease
 
-Runtime source: `abc06185afa41d9519228b285f93bfaa5b3ce083`.
+Runtime source: `df1f8d0aadb380f75d0a23f59b01d1a23d30634f`.
 Exact role manifests/executable and dependency identities are attached as
-[provenance.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/provenance.json),
-[manifest-A.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/manifest-A.json)
-and [manifest-B.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/manifest-B.json).
-The standalone installed `ops/install/VERSION` says `20.0.0-rc.2`; B uses its source
+[provenance.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/provenance.json),
+[manifest-A.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/manifest-A.json)
+and [manifest-B.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.3/manifest-B.json).
+The standalone installed `ops/install/VERSION` says `20.0.0-rc.3`; B uses its source
 manifest. Retained About `0.1.0-dev` and inherited protocol labels are presentation/
 compatibility metadata, not artifact identity or certification.
 
-This candidate adds maintained public FFmpeg/ffprobe reuse, Ubuntu patch-compatible
-package planning, a real M20-compatible new-kit update/rollback interface and named,
-confirmed Save and Apply registration, bounded older-record lookup and pending batches. It preserves schemas/configuration/media
-interfaces and explicit media Start. The preserved rc.1 tag/assets remain distinct;
-these rc.2 kits are new exact-source artifacts.
+This candidate simplifies installation: automatic verified kit preparation, useful
+address/port/admin defaults, generated identity and private configuration, immediate
+input correction, explicit resume and control startup ending at a checked login URL.
+An empty panel needs no source list; registration Apply approves exact channel source
+destinations while media Start stays explicit. Existing data/lifecycle boundaries remain.
+The rc.1 and rc.2 releases stay immutable and available separately.
 
 | Surface | Boundary |
 | --- | --- |
@@ -38,7 +39,8 @@ Short smaller tiers lasted 120.154 and 120.174 seconds. This is no arbitrary-inp
 customer, public-network or larger-capacity promise. It is not a new capacity test
 of rc.2. The changed dependency requires its separate shared TS/HLS ≥180-second and
 movie/completed-archive ≥30-second checks; the release provenance records their result.
-Rc.2's media checks PASS: shared TS/HLS 180.208s from one producer, movie
+Historical rc.2 qualification (including its test accounts and closure below):
+shared TS/HLS PASS at 180.208s from one producer, movie
 30.153s and completed archive30.190s, with1,506,680,832-byte aggregate owned peak.
 That proof uses the preceding rc.2 build; every media/Go/FFmpeg/dependency entry
 and media interface is byte-identical. The source-bound M20 update/rollback/update
@@ -49,6 +51,10 @@ advancing requested_revision, then publishes them with one confirmed Apply.
 Final closure disables/BLOCKS all25 registered test accounts, stops media/recording,
 drains51.044s and leaves zero reservations or orphan/deleted executables. These are
 focused component checks, not another capacity or endurance campaign.
+
+Those 25 accounts and closure describe rc.2 evidence, not the current M22 server.
+M22's clean installation starts with zero subscriber lines. Its focused source
+Apply/playback test finished with media/recording stopped and zero allocations.
 
 **Endurance UNVERIFIED/DEFERRED**; no twelve-hour proof. HTTP is unencrypted,
 including credentials, sessions, bearer links and media. Fresh-host disaster recovery,
@@ -63,8 +69,13 @@ menus and upstream device lists prove no support. Hostnames/IPv6/UDP and unappro
 redirect/nested source destinations deny. Missing GeoIP is unavailable; restricted
 unknown decisions deny.
 
-Fresh installation starts empty. The new kit supports the explicit M20 rc.1-to-rc.2
+Fresh installation starts empty. The new kit preserves the compatible M20/M21
 code-update profile and retained-previous rollback. M19A and arbitrary historical
 schema/configuration/interface migrations remain unsupported. No automatic activation or production
 cutover is implied. [Installation](INSTALL.md), [first use](FIRST-USE.md),
 [operations](OPERATIONS.md) and [source/licences](../SOURCE.md) define the usable path.
+
+The final installer retry correction is covered by isolated root-owned filesystem and
+explicit RESUME tests on the native host. Runtime/media proof remains the preceding
+M22 candidate with identical media/source/dependency payloads; no fresh reinstall
+or repeated media qualification is claimed for this installer-only correction.

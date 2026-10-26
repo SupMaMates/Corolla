@@ -1,13 +1,18 @@
 # Operations and recovery
 
 Run commands locally as root on the standalone server. [First use](FIRST-USE.md) covers
-explicit control start, registration/Apply, authority recovery and media Start.
+registration/Apply, authority recovery and explicit media Start.
 Status never repairs or starts playback:
 
 ```sh
-python3 /opt/corolla/active/ops/install/operations.py status
-python3 /opt/corolla/active/ops/install/control.py stop
+cd /root
+python3 install status
+python3 install stop
 ```
+
+Use the downloaded launcher. If it is unavailable, the installed-path fallback is
+`python3 /opt/corolla/active/ops/install/operations.py status` or
+`python3 /opt/corolla/active/ops/install/control.py stop`.
 
 Stop blocks admissions, Stops media/recording, checks all commissioned nodes,
 drains at least 50 seconds and verifies zero reservations. Keep five-live/32-account/
@@ -99,28 +104,20 @@ and completed past-minute archive. Recovery itself Starts no media.
 
 ## Reapply, interruption, update and rollback
 
-Keep the verified kit and original private input. `python3 install` on a ready
-same-source/same-input installation verifies without reseeding or changing identity.
-For interrupted initial installation inspect the recorded stage/root-only failure.
-The wrapper prints explicit engine guidance and refuses automatic recovery.
-
-Engine operations use `ops/install/install.py` from a verified bootstrap or active
-installation. Arguments for `install --resume`, `upgrade` and `rollback` are
-`--role standalone --input /root/corolla-input.json --bundle VERIFIED_BUNDLE_PATH
---source FULL_SOURCE_SHA --sha256 TRUSTED_INNER_BUNDLE_SHA256`. The kit descriptor
-identifies its embedded bundle; verify the kit before extracting it. `preflight`
-uses the same arguments and is read-only. `verify` needs no bundle arguments:
+Keep the downloaded launcher and original private configuration. Run the same
+entrypoint again after an interrupted install; it identifies the saved stage and
+asks for **RESUME**. Ready installations verify/reuse their identities and start
+only the control UI. Data is never reseeded by retry.
 
 ```sh
-python3 /opt/corolla/active/ops/install/install.py verify
+cd /root
+python3 install
+python3 install verify
 ```
 
-The new kit supports actual compatible application-byte updates from M20
-`1e2b8eccb061c7d3127d98ad48c78fad56180fcd` to this rc.2 profile. Use the **new kit's**
-entrypoint so the old installed VERSION-only guard is not invoked:
+Use the new release's downloaded launcher for a compatible application update:
 
 ```sh
-cd /root/corolla-install-20-rc2
 python3 install update
 python3 install rollback
 python3 install status
@@ -142,7 +139,7 @@ and media survive. Neither operation restores old SQL or authority. Keep current
 previous and one staging release; unknown/executing old objects block pruning.
 Explicit recovery/Apply/Start remains required after switching a backend incarnation.
 
-**M19A-to-20.0.0-rc.2 remains unsupported.** This is an explicit M20-compatible
+**M19A-to-20.0.0-rc.3 remains unsupported.** This is an explicit M20-compatible
 code profile, not arbitrary historical compatibility. No customer migration,
 cross-product import, arbitrary downgrade or private commissioning-script interface
 is offered. There is no erase/reset procedure in this release.
@@ -156,5 +153,5 @@ private diagnostics under `/var/log/corolla`. Do not edit the installed source t
 
 The verified kit's descriptor identifies the source, inner bundle and checksum.
 Its source archive and the engine's `--help` cover advanced flags. An interrupted
-setup needs its exact recorded failure inspected before explicit `--resume`;
+setup uses the same launcher and an explicit resume decision;
 never drop schemas, mark migrations complete or blindly reseed to bypass it.

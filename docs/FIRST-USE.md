@@ -4,33 +4,26 @@
 
 ## First login
 
-In your private root terminal, return to the verified kit directory used during
-[installation](INSTALL.md). Start the panel explicitly and check its status:
+The installer prepares and starts your empty panel, then prints your login URL,
+administrator name and generated password in the private terminal. Open that URL
+and sign in. The default name is **admin**; every generated password is unique.
 
-```sh
-cd /root/corolla-install-20-rc2
-python3 install start
-python3 install status
-```
-
-If you extracted the kit elsewhere, use that directory. Open the panel address you
-selected during setup, with **`/m1adm/`** at the end, and sign in with the administrator
-you created. There are no default credentials. The fresh panel is empty.
-
-Starting the panel does **not** start playback or recording.
+Credentials are retained in root-only `/root/corolla-input.json`. Installation
+never starts playback or recording.
 
 ## Add your first channel
 
 1. Use the ordinary panel forms to create a bouquet, subscriber line and live
    H.264/AAC MPEG-TS or HLS source. Keep entitlements/packages consistent and approve
-   every source IPv4 address/port, including nested resources and redirects.
+   the saved channel source when applying its registration. Sources require literal IPv4;
+   hostnames, link-local/metadata addresses and wildcard destinations are refused.
 2. Open **Registration**, choose the saved line/channel by name, and **Save pending**.
    When the batch is ready, confirm **Apply registrations**. For one change, you can
-   use the confirmed **Save and Apply** shortcut instead. Apply interrupts viewers
-   and leaves media stopped; wait for it to finish before more registration edits.
-3. Check status. If it requests recovery, run the explicit recovery command below
-   from your verified kit. Wait for registration to refresh for this boot, then
-   Apply/publish enabled lines and explicitly **Start** the channel in Live Control.
+   use the confirmed **Save and Apply** shortcut instead. Apply approves the selected channels' exact source destinations (up to four origins),
+   interrupts viewers and leaves media stopped; wait for it to finish before more registration edits.
+3. After Apply finishes, explicitly **Start** the channel in Live Control. The
+   installer has already prepared the initial empty panel. After a later reboot or
+   indicated authority failure, use the recovery command below, then Apply and Start.
 4. Open an entitled M3U/player API link in a supported software client. Check
    Managed runtime and root status; live TS and classic HLS share one producer.
 

@@ -1,0 +1,114 @@
+#!/usr/bin/python3
+"""Download a verified Corolla kit and delegate to its existing installer.
+
+XC_VM install 3470255: release acquisition, generated setup and default ports.
+Corolla keeps SHA256 verification, bounded extraction and its existing role engine.
+"""
+import hashlib
+import io
+import json
+import os
+from pathlib import Path
+import re
+import stat
+import sys
+import tempfile
+import urllib.request
+import zipfile
+
+REPOSITORY = 'SupMaMates/Corolla'
+RELEASE = 'v20.0.0-rc.3'  # The reviewed customer release, including prereleases.
+BASE = 'https://github.com/' + REPOSITORY + '/releases/download/' + RELEASE + '/'
+
+
+def download(url, limit):
+    request = urllib.request.Request(url, headers={'User-Agent': 'Corolla-Installer'})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        data = response.read(limit + 1)
+    if len(data) > limit:
+        raise ValueError('release download exceeds supported size')
+    return data
+
+
+def descriptor(raw, source, role):
+    value = json.loads(raw)
+    if value.get('role') != ('standalone' if role == 'A' else 'additional-media') or value.get('source_sha') != source:
+        raise ValueError('downloaded kit role/source differs from selected release')
+    if value.get('bundle') != source + '-' + role + '.tar.gz':
+        raise ValueError('downloaded bundle differs from selected role')
+    return value
+
+
+def unpack(data, source, role, expected, destination):
+    if hashlib.sha256(data).hexdigest() != expected:
+        raise ValueError('download checksum mismatch; kit was not executed')
+    with zipfile.ZipFile(io.BytesIO(data)) as archive:
+        expected_names = {'install', 'bundle.json', source + '-' + role + '.tar.gz'}
+        if len(archive.infolist()) != 3 or set(archive.namelist()) != expected_names:
+            raise ValueError('invalid role kit members')
+        if any(item.file_size > 512 * 1024**2 or stat.S_ISLNK(item.external_attr >> 16) for item in archive.infolist()):
+            raise ValueError('unsupported kit size/type')
+        if archive.getinfo('bundle.json').file_size > 4096 or archive.getinfo('install').file_size > 65536:
+            raise ValueError('kit metadata/entrypoint exceeds supported size')
+        meta = descriptor(archive.read('bundle.json'), source, role)
+        entry = archive.read('install')
+        if hashlib.sha256(entry).hexdigest() != meta['entrypoint_sha256']:
+            raise ValueError('kit entrypoint checksum mismatch')
+        bundle = archive.read(meta['bundle'])
+        if len(bundle) != meta['bytes'] or hashlib.sha256(bundle).hexdigest() != meta['sha256']:
+            raise ValueError('kit payload checksum mismatch')
+        destination.mkdir(mode=0o700)
+        for name, raw in [('install', entry), ('bundle.json', archive.read('bundle.json')), (meta['bundle'], bundle)]:
+            with (destination / name).open('xb') as out:
+                os.fchmod(out.fileno(), 0o600); out.write(raw)
+
+
+def main():
+    if os.geteuid() != 0 or not sys.stdin.isatty() or not sys.stdout.isatty():
+        raise ValueError('run python3 install as root in a private interactive terminal')
+    role = 'B' if '--media' in sys.argv[1:] else 'A'
+    arguments = [arg for arg in sys.argv[1:] if arg != '--media']
+    if len(arguments) > 1 or any(arg not in ['update','rollback','status','stop','recover','start','verify'] for arg in arguments):
+        raise ValueError('usage: python3 install [--media] [update|rollback|status|stop|recover|start|verify]')
+    home = Path('/root/.corolla-installer')
+    home.mkdir(mode=0o700, exist_ok=True)
+    if home.resolve() != home or home.stat().st_uid != 0 or home.stat().st_mode & 0o077:
+        raise ValueError('private installer directory ownership changed')
+    target = home / (RELEASE + '-' + role)
+    if target.exists():
+        # Cached kit stays bound to the release/role; wrapper checks all hashes.
+        if target.resolve() != target or target.stat().st_uid != 0 or target.stat().st_mode & 0o077:
+            raise ValueError('cached installer directory ownership changed')
+        meta = json.loads((target / 'bundle.json').read_bytes())
+        descriptor(json.dumps(meta), meta['source_sha'], role)
+    else:
+        print('Preparing Corolla ' + RELEASE + ' ' + ('standalone panel' if role == 'A' else 'additional media') + '...', flush=True)
+        provenance = json.loads(download(BASE + 'provenance.json', 131072))
+        source = provenance['source']
+        if not re.fullmatch('[0-9a-f]{40}', source):
+            raise ValueError('invalid release source identity')
+        name = source + '-' + role + '-install.zip'
+        sums = download(BASE + 'SHA256SUMS', 65536).decode('ascii')
+        expected = [line.split()[0] for line in sums.splitlines() if len(line.split()) == 2 and line.split()[1].lstrip('*') == name]
+        if len(expected) != 1 or not re.fullmatch('[0-9a-f]{64}', expected[0]):
+            raise ValueError('selected release has no unique kit checksum')
+        with tempfile.TemporaryDirectory(prefix='.download-', dir=home) as temporary:
+            stage = Path(temporary) / 'kit'
+            unpack(download(BASE + name, 512 * 1024**2), source, role, expected[0], stage)
+            stage.rename(target)
+    os.execv(sys.executable, [sys.executable, '-B', str(target / 'install'), *arguments])
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except ValueError as error:
+        # Fixed validation messages and JSON parser locations contain no source
+        # credentials; transport exceptions remain under the private-safe fallback.
+        print('Installer preparation failed: ' + str(error) + '. Run python3 install again after correcting this. '
+              'Existing installation and saved answers were preserved.', file=sys.stderr)
+        sys.exit(1)
+    except (OSError, KeyError, zipfile.BadZipFile):
+        print('Installer preparation failed. Check network, free disk and release availability, then run python3 install again. '
+              'Existing installation and saved answers were preserved.', file=sys.stderr)
+        sys.exit(1)

@@ -5,15 +5,15 @@
 <p align="center">Manage subscribers, live channels and on-demand media in one self-hosted IPTV panel.</p>
 <p align="center">
   <a href="docs/INSTALL.md"><strong>Install Corolla</strong></a> &nbsp; · &nbsp;
-  <a href="https://github.com/SupMaMates/Corolla/releases/tag/v20.0.0-rc.2"><strong>Download</strong></a> &nbsp; · &nbsp;
+  <a href="https://github.com/SupMaMates/Corolla/releases/tag/v20.0.0-rc.3"><strong>Download</strong></a> &nbsp; · &nbsp;
   <a href="#documentation"><strong>Documentation</strong></a>
 </p>
-<p align="center"><a href="docs/RELEASE.md">20.0.0-rc.2 · Prerelease</a></p>
+<p align="center"><a href="docs/RELEASE.md">20.0.0-rc.3 · Prerelease</a></p>
 
 ## Start here
 
-1. **[Install the panel](docs/INSTALL.md)** — download and verify the standalone kit, then create your administrator.
-2. **[Sign in](docs/FIRST-USE.md#first-login)** — explicitly start the panel and open your chosen address.
+1. **[Install the panel](docs/INSTALL.md)** — run one installer, accept useful defaults and create your administrator.
+2. **[Sign in](docs/FIRST-USE.md#first-login)** — open the working login URL printed by setup.
 3. **[Add your first channel](docs/FIRST-USE.md#add-your-first-channel)** — add content and subscribers, then start playback when ready.
 
 ## Requirements
