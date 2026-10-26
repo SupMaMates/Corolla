@@ -1,6 +1,6 @@
 # 20.0.0-rc.2 — LIMITED RC / prerelease
 
-Runtime source: `3a04ccbf9af6a840f825a5301123366ea6dc073d`.
+Runtime source: `abc06185afa41d9519228b285f93bfaa5b3ce083`.
 Exact role manifests/executable and dependency identities are attached as
 [provenance.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/provenance.json),
 [manifest-A.json](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/manifest-A.json)
@@ -11,7 +11,7 @@ compatibility metadata, not artifact identity or certification.
 
 This candidate adds maintained public FFmpeg/ffprobe reuse, Ubuntu patch-compatible
 package planning, a real M20-compatible new-kit update/rollback interface and named,
-confirmed Save and Apply registration. It preserves schemas/configuration/media
+confirmed Save and Apply registration, bounded older-record lookup and pending batches. It preserves schemas/configuration/media
 interfaces and explicit media Start. The preserved rc.1 tag/assets remain distinct;
 these rc.2 kits are new exact-source artifacts.
 
@@ -38,14 +38,17 @@ Short smaller tiers lasted 120.154 and 120.174 seconds. This is no arbitrary-inp
 customer, public-network or larger-capacity promise. It is not a new capacity test
 of rc.2. The changed dependency requires its separate shared TS/HLS ≥180-second and
 movie/completed-archive ≥30-second checks; the release provenance records their result.
-Rc.2's affected native checks PASS: shared TS/HLS 180.208s from one producer,
-movie 30.153s and completed archive 30.190s; peak aggregate owned memory
-1,506,680,832 bytes within 2 GiB. Normal new-kit update → rollback → update preserves
-business/configuration/identity. Named confirmed Save and Apply and disabled/stopped
-closure pass, including a 51.201s drain and zero reservations. The media and registration proof uses the preceding rc.2 build; its complete
-shipped media/Go/PHP entries are byte-identical to this final build, which adds an
-installer platform guard and repeats the normal update/rollback cycle. These are focused
-component checks, not another capacity or endurance campaign.
+Rc.2's media checks PASS: shared TS/HLS 180.208s from one producer, movie
+30.153s and completed archive30.190s, with1,506,680,832-byte aggregate owned peak.
+That proof uses the preceding rc.2 build; every media/Go/FFmpeg/dependency entry
+and media interface is byte-identical. The source-bound M20 update/rollback/update
+cycle preserves business/configuration/identity and qualifies the unchanged update
+path. The corrected candidate passes normal-kit promotion and separately selects
+an older record beyond the96 recent choices, saves two pending registrations without
+advancing requested_revision, then publishes them with one confirmed Apply.
+Final closure disables/BLOCKS all25 registered test accounts, stops media/recording,
+drains51.044s and leaves zero reservations or orphan/deleted executables. These are
+focused component checks, not another capacity or endurance campaign.
 
 **Endurance UNVERIFIED/DEFERRED**; no twelve-hour proof. HTTP is unencrypted,
 including credentials, sessions, bearer links and media. Fresh-host disaster recovery,

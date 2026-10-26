@@ -3,20 +3,8 @@
   "tag": "v20.0.0-rc.2",
   "prerelease": true,
   "status": "LIMITED RC",
-  "runtime_source": "3a04ccbf9af6a840f825a5301123366ea6dc073d",
+  "runtime_source": "abc06185afa41d9519228b285f93bfaa5b3ce083",
   "assets": [
-    {
-      "name": "3a04ccbf9af6a840f825a5301123366ea6dc073d-A-install.zip",
-      "bytes": 189452759,
-      "sha256": "d2462c04876378adf2ec9546d5371ede276ace608f6b0bc37f137c7f5c42856a",
-      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/3a04ccbf9af6a840f825a5301123366ea6dc073d-A-install.zip"
-    },
-    {
-      "name": "3a04ccbf9af6a840f825a5301123366ea6dc073d-B-install.zip",
-      "bytes": 126803772,
-      "sha256": "7cbabca0f4de47f6bbf4730cd91927a8fa9c8864b8dc95d0abe29ce7956587b3",
-      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/3a04ccbf9af6a840f825a5301123366ea6dc073d-B-install.zip"
-    },
     {
       "name": "BUILD.md",
       "bytes": 5621,
@@ -25,8 +13,8 @@
     },
     {
       "name": "Corolla-20.0.0-rc.2-corresponding-source.tar.gz",
-      "bytes": 43404974,
-      "sha256": "068e8f62d317112d90f905d923dd9cfe82a29379593981789b9bb4bf309ad4e2",
+      "bytes": 43405303,
+      "sha256": "5533322743ac25f30dbe8824114703e8dfc86d66e539968dd725f510f0559b85",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/Corolla-20.0.0-rc.2-corresponding-source.tar.gz"
     },
     {
@@ -37,14 +25,14 @@
     },
     {
       "name": "RELEASE-NOTES.md",
-      "bytes": 5031,
-      "sha256": "e954e791138dc45906edce481e11b68afa04ede968c5a034a7ec2c3c39eccb5f",
+      "bytes": 5265,
+      "sha256": "493584c62a86adc2827f571b873c9b769ae5c831d2f4036db000d2fb5c9e71bf",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/RELEASE-NOTES.md"
     },
     {
       "name": "SHA256SUMS",
       "bytes": 1221,
-      "sha256": "e94d3b173268cc72c565b1a0e2b68fcfc7cd333220fb5e480c16f05e8c8863d4",
+      "sha256": "35fb319665c2a08a5aa1f8d47af2f8a8828bcf0be02076253b6020929664fbf9",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/SHA256SUMS"
     },
     {
@@ -52,6 +40,18 @@
       "bytes": 17224,
       "sha256": "8621da77f16ffbe85ea7275b81557a5e2c926294772c9305e297d323ee7dbb0f",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/THIRD-PARTY-NOTICES.txt"
+    },
+    {
+      "name": "abc06185afa41d9519228b285f93bfaa5b3ce083-A-install.zip",
+      "bytes": 189453238,
+      "sha256": "0444b603170ccaf767ee804eb2679da21f11e59199865e3b8206adcfb5a9407e",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/abc06185afa41d9519228b285f93bfaa5b3ce083-A-install.zip"
+    },
+    {
+      "name": "abc06185afa41d9519228b285f93bfaa5b3ce083-B-install.zip",
+      "bytes": 126803777,
+      "sha256": "3ab6d2b7898c2aed25df5206c5ebb9424e6a671cafbc225b28f0fdc46c4449aa",
+      "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/abc06185afa41d9519228b285f93bfaa5b3ce083-B-install.zip"
     },
     {
       "name": "dependencies.json",
@@ -67,14 +67,14 @@
     },
     {
       "name": "manifest-A.json",
-      "bytes": 1196198,
-      "sha256": "1b207a466d80c17cec78ed8ee5533f2d9eecfa8c9498d04aafa1f7af440219af",
+      "bytes": 1226961,
+      "sha256": "7de54c8daf5639f6f8e19f55a36af9f1551359fdaa5383a8147dd26bcd5a4d38",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/manifest-A.json"
     },
     {
       "name": "manifest-B.json",
-      "bytes": 5191,
-      "sha256": "8b8d583ea0c6099948d896698c0b9111d04df1205a235d0910744aae91d9a136",
+      "bytes": 5350,
+      "sha256": "7e85aaa61050fe049dd6e674b8198229fdc1259e6da50d068682f0d08a6051ef",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/manifest-B.json"
     },
     {
@@ -85,8 +85,8 @@
     },
     {
       "name": "provenance.json",
-      "bytes": 6227,
-      "sha256": "ccf54b4ea10961a9ab80198af7e83c2ded4fbfc77771f4c2c3a65a1c475d3d24",
+      "bytes": 7029,
+      "sha256": "db512a5c2257d85bd1c2584a9b37a6c62da5c0262de25a222cce14460b66978b",
       "url": "https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/provenance.json"
     }
   ]

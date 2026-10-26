@@ -32,8 +32,8 @@ apt-get install --no-install-recommends python3 curl ca-certificates
 umask 077
 cd /root
 curl --fail --location --proto '=https' --tlsv1.2 --output corolla-A-install.zip \
-  https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/3a04ccbf9af6a840f825a5301123366ea6dc073d-A-install.zip
-printf '%s  %s\n' d2462c04876378adf2ec9546d5371ede276ace608f6b0bc37f137c7f5c42856a corolla-A-install.zip | sha256sum --check
+  https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/abc06185afa41d9519228b285f93bfaa5b3ce083-A-install.zip
+printf '%s  %s\n' 0444b603170ccaf767ee804eb2679da21f11e59199865e3b8206adcfb5a9407e corolla-A-install.zip | sha256sum --check
 mkdir -m 700 /root/corolla-install-20-rc2
 python3 -m zipfile -e /root/corolla-A-install.zip /root/corolla-install-20-rc2
 cd /root/corolla-install-20-rc2

@@ -27,15 +27,15 @@ apt-get install --no-install-recommends python3 curl ca-certificates
 umask 077
 cd /root
 curl --fail --location --proto '=https' --tlsv1.2 --output corolla-B-install.zip \
-  https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/3a04ccbf9af6a840f825a5301123366ea6dc073d-B-install.zip
-printf '%s  %s\n' 7cbabca0f4de47f6bbf4730cd91927a8fa9c8864b8dc95d0abe29ce7956587b3 corolla-B-install.zip | sha256sum --check
+  https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/abc06185afa41d9519228b285f93bfaa5b3ce083-B-install.zip
+printf '%s  %s\n' 3ab6d2b7898c2aed25df5206c5ebb9424e6a671cafbc225b28f0fdc46c4449aa corolla-B-install.zip | sha256sum --check
 mkdir -m 700 /root/corolla-media-install-20-rc2
 python3 -m zipfile -e /root/corolla-B-install.zip /root/corolla-media-install-20-rc2
 cd /root/corolla-media-install-20-rc2
 python3 install
 ```
 
-Both roles identify runtime source `3a04ccbf9af6a840f825a5301123366ea6dc073d`.
+Both roles identify runtime source `abc06185afa41d9519228b285f93bfaa5b3ce083`.
 Do not mix older role kits. B exposes restricted SSH on port 18723 after explicit
 control start; it has no public panel/web listener. Pin its independent SSH host
 public key over your trusted administration channel before authentication.

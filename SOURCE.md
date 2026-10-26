@@ -12,7 +12,7 @@ Corolla changes include media/authority boundaries, supported installer/recovery
 bounded services, ingress/egress and selected compatible upstream form/EPG fixes.
 Neither upstream private activation/extensions nor its runtime ownership is adopted.
 
-Download matching accepted runtime **`3a04ccbf9af6a840f825a5301123366ea6dc073d`**:
+Download matching accepted runtime **`abc06185afa41d9519228b285f93bfaa5b3ce083`**:
 
 - [Corresponding runtime/build source](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/Corolla-20.0.0-rc.2-corresponding-source.tar.gz)
 - [Dependency source/notices archive](https://github.com/SupMaMates/Corolla/releases/download/v20.0.0-rc.2/Corolla-20.0.0-rc.2-dependency-source.tar.gz)
